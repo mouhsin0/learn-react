@@ -1,10 +1,13 @@
-import React, { useContext, useEffect, useReducer } from 'react'
+import React, { createContext, useContext, useEffect, useReducer } from 'react'
 import Footer from './Footer'
 import { deliver } from '../App'
+
+export const dataRducer = createContext()
 
 function Body() {
 
   const data = useContext(deliver)
+
 
   const reducer = (state, action) => {
 
@@ -48,7 +51,11 @@ function Body() {
 
     </div>
 
+    <dataRducer.Provider value={dispatch} >
+
     <Footer/>
+
+    </dataRducer.Provider>
 
     </>
 
